@@ -1,0 +1,29 @@
+{
+  "name": "<%= props.project.name %>",
+  "version": "1.0.0",
+  "description": "<%= props.project.description %>",
+  "main": "bundles/<%= props.project.name %>.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {},
+  "keywords": [
+    "angular",
+    "ngx"
+  ],
+  "author": "<%= props.author.name %> (<%= props.author.email %>)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "<%= props.project.repoUrl %>"
+  },
+  "homepage": "<%= props.project.repoUrl %>",
+  "bugs": {
+    "url": "<%= props.project.repoUrl %>/issues"
+  },
+  "peerDependencies": {
+    "@angular/core": "^2.4.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.3",
+    "zone.js": "^0.7.2"
+  }
+}

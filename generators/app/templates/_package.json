@@ -1,0 +1,47 @@
+{
+  "name": "<%= props.project.name %>",
+  "version": "1.0.0",
+  "description": "<%= props.project.description %>",
+  "main": "dist/bundles/<%= props.project.name %>.umd.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/bundles/<%= props.project.name %>.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/<%= props.project.name %>.umd.min.js",
+    "copy": "copyfiles LICENSE README.md dist",
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy",
+    "publish-to-npm": "cd dist && npm publish"
+  },
+  "keywords": [
+    "angular",
+    "ngx"
+  ],
+  "author": {
+    "name": "<%= props.author.name %>",
+    "email": "<%= props.author.email %>"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "<%= props.project.repoUrl %>"
+  },
+  "homepage": "<%= props.project.repoUrl %>",
+  "bugs": {
+    "url": "<%= props.project.repoUrl %>/issues"
+  },
+  "dependencies": {
+    "@angular/core": "^2.4.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.3",
+    "zone.js": "^0.7.2"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
+    "copyfiles": "^1.0.0",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.37.0",
+    "typescript": "~2.0.10",
+    "uglify-js": "^2.7.5"
+  }
+}
